@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react'
 import { useScrollPosition } from '../hooks/useScrollPosition'
-import { navItems } from '../data'
+import { contactEmail, navItems } from '../data'
 
 const FloatingNav = () => {
   const { isScrolled } = useScrollPosition()
@@ -29,7 +29,7 @@ const FloatingNav = () => {
 
             {/* CTA button — inverted contrast */}
             <a
-              href="mailto:you@email.com"
+              href={`mailto:${contactEmail}`}
               className="ml-1 flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-neutral-900 transition-all duration-200 hover:bg-neutral-200"
             >
               Let's Talk

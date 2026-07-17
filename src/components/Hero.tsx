@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
+import { contactEmail } from '../data'
 
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null)
@@ -73,7 +74,7 @@ const Hero = () => {
             GitHub
           </a>
           <a
-            href="mailto:you@email.com"
+            href={`mailto:${contactEmail}`}
             className="rounded-md border border-border bg-surface px-5 py-3 font-mono text-sm text-text transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-accent-dim"
           >
             Contact

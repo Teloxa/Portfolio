@@ -1,8 +1,16 @@
 import { motion } from 'motion/react'
-import { socialLinks } from '../data'
+import { useState } from 'react'
+import { contactEmail, socialLinks } from '../data'
 
 const Footer = () => {
   const year = new Date().getFullYear()
+  const [copied, setCopied] = useState(false)
+
+  const handleCopyEmail = async () => {
+    await navigator.clipboard.writeText(contactEmail)
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1500)
+  }
 
   return (
     <footer className="relative border-t border-border px-6 py-16">
@@ -25,16 +33,37 @@ const Footer = () => {
           {/* Social links */}
           <div className="flex items-center gap-6">
             {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-accent"
-              >
-                {link.label}
-                <span className="text-xs">{link.icon}</span>
-              </a>
+              <div key={link.label} className="flex items-center gap-1.5 text-sm text-muted">
+                {link.label === 'Email' ? (
+                  <>
+                    <a
+                      href={`mailto:${contactEmail}`}
+                      className="transition-colors hover:text-accent"
+                    >
+                      {contactEmail}
+                    </a>
+                    <button
+                      type="button"
+                      onClick={handleCopyEmail}
+                      aria-label="Copy email"
+                      title={copied ? 'Copied' : 'Copy email'}
+                      className="text-xs transition-colors hover:text-accent"
+                    >
+                      {copied ? '✓' : link.icon}
+                    </button>
+                  </>
+                ) : (
+                  <a
+                    href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="flex items-center gap-1.5 transition-colors hover:text-accent"
+                  >
+                    {link.label}
+                    <span className="text-xs">{link.icon}</span>
+                  </a>
+                )}
+              </div>
             ))}
           </div>
 

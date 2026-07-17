@@ -29,6 +29,8 @@ export interface SocialLink {
   icon: string
 }
 
+export const contactEmail = 'you@email.com'
+
 // ── Navigation ─────────────────────────────────────────
 
 export const navItems: NavItem[] = [
@@ -134,5 +136,5 @@ export const technologies: TechCategory[] = [
 export const socialLinks: SocialLink[] = [
   { label: 'GitHub', href: 'https://github.com/teloxa', icon: '↗' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/teloxa', icon: '↗' },
-  { label: 'Email', href: 'mailto:you@email.com', icon: '✉' },
+  { label: 'Email', href: `mailto:${contactEmail}`, icon: '✉' },
 ]
