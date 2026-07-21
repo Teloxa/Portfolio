@@ -34,17 +34,16 @@ const About = () => {
               {/* Decorative rings */}
               <div className="absolute -inset-3 rounded-full border border-accent/20" />
               <div className="absolute -inset-6 rounded-full border border-accent/10" />
-              {/* Avatar circle */}
+              {/* Profile photo */}
               <div
-                className="h-56 w-56 rounded-full border-2 border-border"
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--color-accent-dim) 0%, var(--color-surface) 50%, var(--color-accent-dim) 100%)',
-                }}
+                className="h-80 w-80 overflow-hidden rounded-full border-2 border-border bg-[linear-gradient(135deg,var(--color-accent-dim)_0%,var(--color-surface)_50%,var(--color-accent-dim)_100%)]"
               >
-                <div className="flex h-full items-center justify-center font-display text-5xl font-bold text-accent/60">
-                  T
-                </div>
+                <img
+                  src="/Photo-Profile-03.jpg"
+                  alt="Profile photo"
+                  className="h-full w-full object-cover object-center"
+                  style={{ objectPosition: 'center 20%' }}
+                />
               </div>
             </div>
           </motion.div>
