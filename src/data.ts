@@ -30,6 +30,7 @@ export interface SocialLink {
 }
 
 export const contactEmail = 'you@email.com'
+export const resumeUrl = '/resume.pdf'
 
 // ── Navigation ─────────────────────────────────────────
 

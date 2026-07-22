@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
-import { contactEmail } from '../data'
+import { contactEmail, resumeUrl } from '../data'
 
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null)
@@ -60,7 +60,9 @@ const Hero = () => {
         {/* CTA row */}
         <div className="mt-9 flex flex-wrap gap-3">
           <a
-            href="#"
+            href={resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md border border-accent bg-accent px-5 py-3 font-mono text-sm font-bold text-bg transition-all hover:-translate-y-0.5 hover:bg-accent-bright"
           >
             View the CV
