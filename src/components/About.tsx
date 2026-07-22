@@ -76,8 +76,8 @@ const About = () => {
             {/* Quick stats */}
             <div className="flex flex-wrap gap-8 pt-4">
               {[
-                { value: '3+', label: 'Years Experience' },
-                { value: '20+', label: 'Projects Shipped' },
+                { value: '1+', label: 'Years Experience' },
+                { value: '5+', label: 'Projects Shipped' },
                 { value: '∞', label: 'Curiosity' },
               ].map((stat) => (
                 <div key={stat.label}>

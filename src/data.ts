@@ -29,7 +29,7 @@ export interface SocialLink {
   icon: string
 }
 
-export const contactEmail = 'you@email.com'
+export const contactEmail = 'moralesdvd03@hotmail.com'
 export const resumeUrl = '/resume.pdf'
 
 // ── Navigation ─────────────────────────────────────────
@@ -136,6 +136,6 @@ export const technologies: TechCategory[] = [
 
 export const socialLinks: SocialLink[] = [
   { label: 'GitHub', href: 'https://github.com/teloxa', icon: '↗' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/teloxa', icon: '↗' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/david-morales-teloxa/', icon: '↗' },
   { label: 'Email', href: `mailto:${contactEmail}`, icon: '✉' },
 ]

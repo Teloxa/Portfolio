@@ -1,15 +1,26 @@
 import { motion } from 'motion/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { contactEmail, socialLinks } from '../data'
 
 const Footer = () => {
   const year = new Date().getFullYear()
   const [copied, setCopied] = useState(false)
 
+  useEffect(() => {
+    if (!copied) return
+
+    const timer = window.setTimeout(() => setCopied(false), 1500)
+
+    return () => window.clearTimeout(timer)
+  }, [copied])
+
   const handleCopyEmail = async () => {
-    await navigator.clipboard.writeText(contactEmail)
-    setCopied(true)
-    window.setTimeout(() => setCopied(false), 1500)
+    try {
+      await navigator.clipboard.writeText(contactEmail)
+      setCopied(true)
+    } catch {
+      setCopied(false)
+    }
   }
 
   return (
@@ -36,12 +47,20 @@ const Footer = () => {
               <div key={link.label} className="flex items-center gap-1.5 text-sm text-muted">
                 {link.label === 'Email' ? (
                   <>
-                    <a
-                      href={`mailto:${contactEmail}`}
-                      className="transition-colors hover:text-accent"
+                    <button
+                      type="button"
+                      onClick={handleCopyEmail}
+                      aria-label="Copy email"
+                      title={copied ? 'Copied' : 'Copy email'}
+                      className="flex cursor-pointer items-center gap-1.5 transition-colors hover:text-accent"
                     >
-                      {contactEmail}
-                    </a>
+                      <span>{contactEmail}</span>
+                    </button>
+                    {copied ? (
+                      <span className="text-xs font-medium text-accent">
+                        text copied
+                      </span>
+                    ) : null}
                     <button
                       type="button"
                       onClick={handleCopyEmail}
