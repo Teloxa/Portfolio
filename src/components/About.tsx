@@ -58,7 +58,7 @@ const About = () => {
           >
             <p className="text-lg leading-relaxed text-text">
               I'm a <span className="font-semibold text-accent">fullstack developer</span> with
-              a passion for crafting clean, performant web applications. I
+              a interest in crafting clean, performant web applications. I
               specialize in the React &amp; Node.js ecosystem, building everything
               from interactive frontends to scalable backend services.
             </p>
