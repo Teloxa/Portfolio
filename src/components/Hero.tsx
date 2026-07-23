@@ -12,8 +12,8 @@
     })
 
     // The spacer is 2x the viewport height, so the first 50% of progress maps
-    // to the first 100vh of scrolling. Clamp the scale at 50% once that point is reached.
-    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0.5])
+    // to the first 100vh of scrolling. Scale starts 25% larger and clamps once that point is reached.
+    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.25, 0.625, 0.625])
 
     return (
         <section
@@ -27,7 +27,7 @@
 
             <motion.div
             style={{ scale }}
-            className="relative z-10 w-full max-w-170 origin-center will-change-transform"1
+            className="relative z-10 w-full max-w-170 origin-center will-change-transform"
             >
             <div className="mx-auto flex flex-col items-center text-center">
                 {/* Terminal bar */}
@@ -77,7 +77,9 @@
                     GitHub
                 </a>
                 <a
-                    href={`mailto:${contactEmail}`}
+                    href="https://www.linkedin.com/in/david-morales-teloxa/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="rounded-md border border-border bg-surface px-5 py-3 font-mono text-sm text-text transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-accent-dim"
                 >
                     Contact
@@ -88,7 +90,7 @@
 
             {/* Scroll indicator */}
             <motion.div
-            className="pointer-events-none absolute bottom-4 left-1/2 z-20 -translate-x-1/2 md:bottom-6"
+            className="pointer-events-none absolute bottom-8 left-1/2 z-20 -translate-x-1/2 md:bottom-10"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             >
