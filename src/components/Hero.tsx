@@ -27,7 +27,7 @@ const Hero = () => {
 
         <motion.div
           style={{ scale }}
-          className="relative z-10 w-full max-w-[680px] origin-center will-change-transform"
+          className="relative z-10 w-full max-w-170 origin-center will-change-transform"
         >
           <div className="mx-auto flex flex-col items-center text-center">
             {/* Terminal bar */}
@@ -47,7 +47,7 @@ const Hero = () => {
             </p>
 
             {/* Tagline */}
-            <p className="mt-6 max-w-[520px] text-lg leading-relaxed text-text">
+            <p className="mt-6 max-w-130 text-lg leading-relaxed text-text">
               I build fast, scalable web apps from database to UI — and I care about
               the parts most people skip.
               <span className="cursor-blink" />
