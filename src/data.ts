@@ -98,36 +98,36 @@ export const projects: Project[] = [
 
 export const technologies: TechCategory[] = [
   {
+    category: 'Languages',
+    items: [
+      { name: 'JavaScript', icon: 'javascript' },
+      { name: 'Python', icon: 'python' },
+      { name: 'TypeScript', icon: 'typescript' },
+      { name: 'C++', icon: 'cpp' },
+    ],
+  },
+  {
     category: 'Frontend',
     items: [
-      { name: 'React', icon: '⚛️' },
-      { name: 'TypeScript', icon: '🔷' },
-      { name: 'Next.js', icon: '▲' },
-      { name: 'Tailwind CSS', icon: '🎨' },
-      { name: 'Framer Motion', icon: '🎬' },
-      { name: 'HTML/CSS', icon: '🌐' },
+      { name: 'React', icon: 'react' },
+      { name: 'Vue', icon: 'vue' },
+      { name: 'Tailwind CSS', icon: 'tailwind' },
+      { name: 'HTML', icon: 'html' },
+      { name: 'CSS', icon: 'css' },
+      { name: 'Figma', icon: 'figma' },
     ],
   },
   {
-    category: 'Backend',
+    category: 'Backend & Tools',
     items: [
-      { name: 'Node.js', icon: '🟢' },
-      { name: 'Python', icon: '🐍' },
-      { name: 'PostgreSQL', icon: '🐘' },
-      { name: 'MongoDB', icon: '🍃' },
-      { name: 'Redis', icon: '🔴' },
-      { name: 'GraphQL', icon: '◈' },
-    ],
-  },
-  {
-    category: 'Tools',
-    items: [
-      { name: 'Git', icon: '🔀' },
-      { name: 'Docker', icon: '🐳' },
-      { name: 'AWS', icon: '☁️' },
-      { name: 'Figma', icon: '🎯' },
-      { name: 'Linux', icon: '🐧' },
-      { name: 'VS Code', icon: '💻' },
+      { name: 'Node.js', icon: 'node' },
+      { name: 'Docker', icon: 'docker' },
+      { name: 'MySQL', icon: 'mysql' },
+      { name: 'MongoDB', icon: 'mongodb' },
+      { name: 'PostgreSQL', icon: 'postgresql' },
+      { name: 'Postman', icon: 'postman' },
+      { name: 'Git', icon: 'git' },
+      { name: 'GitHub', icon: 'github' },
     ],
   },
 ]
