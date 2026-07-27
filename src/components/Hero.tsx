@@ -36,7 +36,10 @@ const Hero = () => {
         >
             <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
                 {/* Radial gradient overlay for depth */}
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_18%,var(--color-bg)_74%)]" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_12%,var(--color-bg)_58%)]" />
+                {/* Left & right edge fade to ensure grid never bleeds */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-bg to-transparent" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-bg to-transparent" />
 
                 <motion.div
                     style={{ scale }}
