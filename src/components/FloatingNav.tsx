@@ -16,12 +16,12 @@ const FloatingNav = () => {
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className="fixed top-6 left-1/2 z-50 -translate-x-1/2"
         >
-          <div className="flex items-center gap-1 rounded-full border border-white/10 bg-neutral-900/80 px-2 py-2 shadow-2xl backdrop-blur-xl">
+          <div className="flex items-center gap-0.5 md:gap-1 rounded-full border border-white/10 bg-neutral-900/80 px-1.5 py-1.5 md:px-2 md:py-2 shadow-2xl backdrop-blur-xl">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-neutral-400 transition-colors duration-200 hover:text-white"
+                className="rounded-full px-2.5 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium text-neutral-400 transition-colors duration-200 hover:text-white"
               >
                 {item.label}
               </a>
@@ -30,7 +30,7 @@ const FloatingNav = () => {
             {/* CTA button — inverted contrast */}
             <a
               href={`mailto:${contactEmail}`}
-              className="ml-1 flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-neutral-900 transition-all duration-200 hover:bg-neutral-200"
+              className="ml-0.5 md:ml-1 flex items-center gap-1 md:gap-1.5 rounded-full bg-white px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-semibold text-neutral-900 transition-all duration-200 hover:bg-neutral-200"
             >
               Let's Talk
               <svg
