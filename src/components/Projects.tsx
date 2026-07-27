@@ -1,14 +1,14 @@
-import { motion } from 'motion/react'
+import { motion, type Variants } from 'motion/react'
 import { projects } from '../data'
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.12 },
   },
 }
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,

@@ -1,6 +1,6 @@
     import { useRef } from 'react'
     import { motion, useScroll, useTransform } from 'motion/react'
-    import { contactEmail, resumeUrl } from '../data'
+    import { resumeUrl } from '../data'
 
     const Hero = () => {
     const heroRef = useRef<HTMLElement>(null)
