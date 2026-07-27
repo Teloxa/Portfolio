@@ -7,7 +7,7 @@ import Footer from './components/Footer'
 
 const App = () => {
   return (
-    <>
+    <div className="relative w-full max-w-[100vw] overflow-x-hidden">
       <FloatingNav />
       <main>
         <Hero />
@@ -16,7 +16,7 @@ const App = () => {
         <About />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

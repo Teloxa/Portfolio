@@ -42,9 +42,10 @@ const Footer = () => {
           </a>
 
           {/* Social links */}
-          <div className="flex items-center gap-6">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             {socialLinks.map((link) => (
-              <div key={link.label} className="flex items-center gap-1.5 text-sm text-muted">
+              <div key={link.label} className="flex items-center gap-1.5 text-sm md:text-base text-muted">
                 {link.label === 'Email' ? (
                   <>
                     <button
@@ -84,6 +85,7 @@ const Footer = () => {
                 )}
               </div>
             ))}
+            </div>
           </div>
 
           {/* Divider */}
