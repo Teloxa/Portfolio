@@ -1,5 +1,7 @@
 # Portfolio
 
+[![Presentation](/ss_presentation.JPG)](https://teloxa.vercel.app/)
+
 This is my personal portfolio website.
 
 I build clean and modern web interfaces with React, TypeScript, and Vite. I also work with Next.js, Node.js, Python, PostgreSQL, MongoDB, Docker, and AWS.
