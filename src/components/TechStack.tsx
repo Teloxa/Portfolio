@@ -20,6 +20,16 @@ import {
 } from 'react-icons/si'
 import { technologies } from '../data'
 
+interface TechCopy {
+  sectionTag: string
+  title: string
+  description: string
+}
+
+interface TechStackProps {
+  copy: TechCopy
+}
+
 const iconMap = {
     javascript: SiJavascript,
     python: SiPython,
@@ -62,19 +72,19 @@ const iconClassNames: Record<keyof typeof iconMap, string> = {
     github: 'text-[#181717]',
 }
 
-const TechStack = () => {
+const TechStack = ({ copy }: TechStackProps) => {
     return (
     <section id="tech" className="relative px-6 py-28">
             <div className="mx-auto max-w-6xl">
                 <div className="mb-16">
                     <p className="mb-2 font-mono text-sm tracking-wider text-accent">
-                        03 — TECHNOLOGIES
+                        {copy.sectionTag}
                     </p>
                     <h2 className="font-display text-4xl font-bold tracking-tight text-text md:text-5xl">
-                        My Tech Stack
+                        {copy.title}
                     </h2>
                     <p className="mt-4 max-w-lg text-muted">
-                        Languages, frameworks, and tools I use to build modern products.
+                        {copy.description}
                     </p>
                 </div>
 

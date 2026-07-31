@@ -17,7 +17,26 @@
   --font-display: "Outfit", sans-serif;
 }
 
+/* ── Light Theme Overrides ─────────────────────────── */
+[data-theme="light"] {
+  --color-bg: #f4f6f9;
+  --color-surface: #ffffff;
+  --color-surface-hover: #eef1f6;
+  --color-border: #dde1ea;
+  --color-text: #1a1e27;
+  --color-muted: #5c6678;
+  --color-accent: #0d9488;
+  --color-accent-dim: #ccfbf1;
+  --color-accent-bright: #0f766e;
+}
+
 /* ── Base Styles ───────────────────────────────────── */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text);

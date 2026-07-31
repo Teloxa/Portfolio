@@ -2,7 +2,16 @@ import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { contactEmail, socialLinks } from '../data'
 
-const Footer = () => {
+interface FooterCopy {
+  copiedText: string
+  copyright: string
+}
+
+interface FooterProps {
+  copy: FooterCopy
+}
+
+const Footer = ({ copy }: FooterProps) => {
   const year = new Date().getFullYear()
   const [copied, setCopied] = useState(false)
 
@@ -59,7 +68,7 @@ const Footer = () => {
                     </button>
                     {copied ? (
                       <span className="text-xs font-medium text-accent">
-                        text copied
+                        {copy.copiedText}
                       </span>
                     ) : null}
                     <button
@@ -93,7 +102,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-center text-xs text-muted">
-            © {year} Teloxa. Crafted with React, TypeScript &amp; a lot of ☕
+            © {year} Teloxa. {copy.copyright}
           </p>
         </motion.div>
       </div>

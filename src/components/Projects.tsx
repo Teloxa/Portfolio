@@ -1,5 +1,16 @@
 import { motion, type Variants } from 'motion/react'
-import { projects } from '../data'
+import type { Project } from '../data'
+
+interface ProjectsCopy {
+  sectionTag: string
+  title: string
+  description: string
+  items: Project[]
+}
+
+interface ProjectsProps {
+  copy: ProjectsCopy
+}
 
 const containerVariants: Variants = {
   hidden: {},
@@ -17,7 +28,7 @@ const cardVariants: Variants = {
   },
 }
 
-const Projects = () => {
+const Projects = ({ copy }: ProjectsProps) => {
   return (
     <section id="projects" className="relative px-6 py-28">
       <div className="mx-auto max-w-6xl">
@@ -30,14 +41,13 @@ const Projects = () => {
           className="mb-16"
         >
           <p className="mb-2 font-mono text-sm tracking-wider text-accent">
-            02 — PROJECTS
+            {copy.sectionTag}
           </p>
           <h2 className="font-display text-4xl font-bold tracking-tight text-text md:text-5xl">
-            Selected Work
+            {copy.title}
           </h2>
           <p className="mt-4 max-w-lg text-muted">
-            A curated collection of projects that showcase my approach to
-            building scalable, polished applications.
+            {copy.description}
           </p>
         </motion.div>
 
@@ -49,7 +59,7 @@ const Projects = () => {
           viewport={{ once: true, margin: '-50px' }}
           className="grid gap-6 md:grid-cols-2"
         >
-          {projects.map((project) => (
+          {copy.items.map((project) => (
             <motion.a
               key={project.title}
               href={project.link}

@@ -1,6 +1,20 @@
 import { motion } from 'motion/react'
 
-const About = () => {
+interface AboutCopy {
+  sectionTag: string
+  title: string
+  intro: string
+  body1: string
+  body2: string
+  body3: string
+  stats: Array<{ value: string; label: string }>
+}
+
+interface AboutProps {
+  copy: AboutCopy
+}
+
+const About = ({ copy }: AboutProps) => {
 return (
     <section id="about" className="relative px-6 py-28">
     <div className="mx-auto max-w-6xl">
@@ -13,10 +27,10 @@ return (
         className="mb-16"
         >
         <p className="mb-2 font-mono text-sm tracking-wider text-accent">
-            04 — ABOUT
+            {copy.sectionTag}
         </p>
         <h2 className="font-display text-4xl font-bold tracking-tight text-text md:text-5xl">
-            About Me
+            {copy.title}
         </h2>
         </motion.div>
 
@@ -57,29 +71,18 @@ return (
             className="space-y-5 md:col-span-3"
         >
             <p className="text-lg leading-relaxed text-text">
-            I'm a <span className="font-semibold text-accent">fullstack developer</span> with
-            a interest in crafting clean, performant web applications. I
-            specialize in the React &amp; Node.js ecosystem, building everything
-            from interactive frontends to scalable backend services.
+            {copy.intro}
             </p>
             <p className="leading-relaxed text-muted">
-            When I'm not writing code, I'm probably exploring new frameworks,
-            contributing to open-source projects, or figuring out how to make
-            that one animation feel just right. I believe great software is
-            built with attention to the details most people skip.
+            {copy.body1}
             </p>
             <p className="leading-relaxed text-muted">
-            Currently open to freelance opportunities and collaborations.
-            Let's build something remarkable together.
+            {copy.body2}{' '}{copy.body3}
             </p>
 
             {/* Quick stats */}
             <div className="flex flex-wrap gap-8 pt-4">
-            {[
-                { value: '1+', label: 'Years Experience' },
-                { value: '5+', label: 'Projects Shipped' },
-                { value: '∞', label: 'Curiosity' },
-            ].map((stat) => (
+            {copy.stats.map((stat) => (
                 <div key={stat.label}>
                 <p className="font-display text-2xl font-bold text-accent">
                     {stat.value}
