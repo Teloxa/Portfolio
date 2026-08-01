@@ -59,9 +59,9 @@ const Projects = ({ copy }: ProjectsProps) => {
           viewport={{ once: true, margin: '-50px' }}
           className="grid gap-6 md:grid-cols-2"
         >
-          {copy.items.map((project) => (
+          {copy.items.map((project, index) => (
             <motion.a
-              key={project.title}
+              key={index}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
