@@ -2,7 +2,25 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
 import { resumeUrl } from '../data'
 
-const Hero = () => {
+interface HeroCopy {
+    terminal: string
+    titlePrefix: string
+    titleName: string
+    role: string
+    tagline: string
+    statusLabel: string
+    statusValue: string
+    cvButton: string
+    githubButton: string
+    contactButton: string
+    scrollLabel: string
+}
+
+interface HeroProps {
+    copy: HeroCopy
+}
+
+const Hero = ({ copy }: HeroProps) => {
     const heroRef = useRef<HTMLElement>(null)
 
     // Track scroll progress across the tall spacer, not the full page.
@@ -49,29 +67,28 @@ const Hero = () => {
                         {/* Terminal bar */}
                         <div className="mb-7 flex items-center gap-2 font-mono text-xs tracking-wide text-muted">
                             <span className="inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_8px_var(--color-accent)]" />
-                            <span>~/portfolio/teloxa — zsh</span>
+                            <span>{copy.terminal}</span>
                         </div>
 
                         {/* Heading */}
                         <h1 className="font-mono text-[clamp(1.6rem,5vw,3.6rem)] font-extrabold leading-[1.1] tracking-tight">
-                            Hi, I'm <span className="text-accent">Teloxa</span>_
+                            {copy.titlePrefix} <span className="text-accent">{copy.titleName}</span>_
                         </h1>
 
                         {/* Role */}
                         <p className="mt-2.5 font-mono text-sm md:text-[1.05rem] font-medium text-muted">
-                            Fullstack Developer · React &amp; Node.js
+                            {copy.role}
                         </p>
 
                         {/* Tagline */}
                         <p className="mt-4 md:mt-6 max-w-full md:max-w-130 text-base md:text-lg leading-relaxed text-text">
-                            I build fast, scalable web apps from database to UI — and I care about
-                            the parts most people skip.
+                            {copy.tagline}
                             <span className="cursor-blink" />
                         </p>
 
                         {/* Status */}
                         <p className="mt-5 flex items-center gap-2 font-mono text-sm text-muted">
-                            <b className="font-medium text-accent">status:</b> open_to_work = true
+                            <b className="font-medium text-accent">{copy.statusLabel}</b> {copy.statusValue}
                         </p>
 
                         {/* CTA row */}
@@ -82,7 +99,7 @@ const Hero = () => {
                                 rel="noopener noreferrer"
                                 className="rounded-md border border-accent bg-accent px-4 py-2.5 md:px-5 md:py-3 font-mono text-xs md:text-sm font-bold text-bg transition-all hover:-translate-y-0.5 hover:bg-accent-bright"
                             >
-                                View the CV
+                                {copy.cvButton}
                             </a>
                             <a
                                 href="https://github.com/teloxa"
@@ -90,7 +107,7 @@ const Hero = () => {
                                 rel="noopener noreferrer"
                                 className="rounded-md border border-border bg-surface px-4 py-2.5 md:px-5 md:py-3 font-mono text-xs md:text-sm text-text transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-accent-dim"
                             >
-                                GitHub
+                                {copy.githubButton}
                             </a>
                             <a
                                 href="https://www.linkedin.com/in/david-morales-teloxa/"
@@ -98,7 +115,7 @@ const Hero = () => {
                                 rel="noopener noreferrer"
                                 className="rounded-md border border-border bg-surface px-4 py-2.5 md:px-5 md:py-3 font-mono text-xs md:text-sm text-text transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-accent-dim"
                             >
-                                Contact
+                                {copy.contactButton}
                             </a>
                         </div>
                     </div>
@@ -111,7 +128,7 @@ const Hero = () => {
                     transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 >
                     <div className="flex flex-col items-center gap-2 text-muted">
-                        <span className="font-mono text-xs tracking-wider">scroll</span>
+                        <span className="font-mono text-xs tracking-wider">{copy.scrollLabel}</span>
                         <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
                             <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" strokeWidth="1.5" />
                             <motion.rect
