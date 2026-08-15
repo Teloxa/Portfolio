@@ -22,10 +22,12 @@ jobs:
         run: npm install
 
       - name: Lint
-        run: npm run lint
+        run: npm run eslint || npm run lint
 
       - name: Build
         run: npm run build
+      - name: Run tests
+        run: npm run test:ci
 
   deploy:
     if: github.ref == 'refs/heads/main'
