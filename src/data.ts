@@ -11,6 +11,7 @@ export interface Project {
   tags: string[]
   image: string
   link: string
+  repo?: string
 }
 
 export interface Technology {

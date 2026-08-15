@@ -30,7 +30,7 @@ interface TechStackProps {
   copy: TechCopy
 }
 
-const iconMap = {
+export const iconMap = {
     javascript: SiJavascript,
     python: SiPython,
     typescript: SiTypescript,
@@ -51,7 +51,7 @@ const iconMap = {
     github: SiGithub,
 }
 
-const iconClassNames: Record<keyof typeof iconMap, string> = {
+export const iconClassNames: Record<keyof typeof iconMap, string> = {
     javascript: 'text-[#f7df1e]',
     python: 'text-[#3776ab]',
     typescript: 'text-[#3178c6]',
