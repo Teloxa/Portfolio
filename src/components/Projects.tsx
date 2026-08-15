@@ -1,24 +1,40 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence, type Variants } from 'motion/react'
-import type { Project } from '../data'
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence, type Variants } from 'motion/react';
+import type { Project } from '../data';
 import {
-  SiReact, SiTypescript, SiNodedotjs, SiPython, SiGo, SiDocker,
-  SiKubernetes, SiTerraform, SiFastapi, SiStorybook, SiRedis,
-  SiD3Dotjs, SiNextdotjs, SiPrisma, SiStripe, SiPostgresql,
-  SiCss3, SiHtml5, SiWebrtc, SiFigma
-} from 'react-icons/si'
-import { IoClose } from 'react-icons/io5'
-import { FiExternalLink, FiGithub } from 'react-icons/fi'
+  SiReact,
+  SiTypescript,
+  SiNodedotjs,
+  SiPython,
+  SiGo,
+  SiDocker,
+  SiKubernetes,
+  SiTerraform,
+  SiFastapi,
+  SiStorybook,
+  SiRedis,
+  SiD3,
+  SiNextdotjs,
+  SiPrisma,
+  SiStripe,
+  SiPostgresql,
+  SiCss,
+  SiHtml5,
+  SiWebrtc,
+  SiFigma,
+} from 'react-icons/si';
+import { IoClose } from 'react-icons/io5';
+import { FiExternalLink, FiGithub } from 'react-icons/fi';
 
 interface ProjectsCopy {
-  sectionTag: string
-  title: string
-  description: string
-  items: Project[]
+  sectionTag: string;
+  title: string;
+  description: string;
+  items: Project[];
 }
 
 interface ProjectsProps {
-  copy: ProjectsCopy
+  copy: ProjectsCopy;
 }
 
 const containerVariants: Variants = {
@@ -26,7 +42,7 @@ const containerVariants: Variants = {
   visible: {
     transition: { staggerChildren: 0.12 },
   },
-}
+};
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -35,46 +51,46 @@ const cardVariants: Variants = {
     y: 0,
     transition: { duration: 0.5, ease: 'easeOut' },
   },
-}
+};
 
 const getIconForTag = (tag: string) => {
-  const t = tag.toLowerCase()
-  if (t.includes('react')) return SiReact
-  if (t.includes('typescript')) return SiTypescript
-  if (t.includes('node')) return SiNodedotjs
-  if (t.includes('python')) return SiPython
-  if (t.includes('go')) return SiGo
-  if (t.includes('docker')) return SiDocker
-  if (t.includes('kubernetes')) return SiKubernetes
-  if (t.includes('terraform')) return SiTerraform
-  if (t.includes('fastapi')) return SiFastapi
-  if (t.includes('storybook')) return SiStorybook
-  if (t.includes('redis')) return SiRedis
-  if (t.includes('d3')) return SiD3Dotjs
-  if (t.includes('next')) return SiNextdotjs
-  if (t.includes('prisma')) return SiPrisma
-  if (t.includes('stripe')) return SiStripe
-  if (t.includes('postgres')) return SiPostgresql
-  if (t.includes('css')) return SiCss3
-  if (t.includes('html')) return SiHtml5
-  if (t.includes('webrtc')) return SiWebrtc
-  if (t.includes('figma')) return SiFigma
-  return null
-}
+  const t = tag.toLowerCase();
+  if (t.includes('react')) return SiReact;
+  if (t.includes('typescript')) return SiTypescript;
+  if (t.includes('node')) return SiNodedotjs;
+  if (t.includes('python')) return SiPython;
+  if (t.includes('go')) return SiGo;
+  if (t.includes('docker')) return SiDocker;
+  if (t.includes('kubernetes')) return SiKubernetes;
+  if (t.includes('terraform')) return SiTerraform;
+  if (t.includes('fastapi')) return SiFastapi;
+  if (t.includes('storybook')) return SiStorybook;
+  if (t.includes('redis')) return SiRedis;
+  if (t.includes('d3')) return SiD3;
+  if (t.includes('next')) return SiNextdotjs;
+  if (t.includes('prisma')) return SiPrisma;
+  if (t.includes('stripe')) return SiStripe;
+  if (t.includes('postgres')) return SiPostgresql;
+  if (t.includes('css')) return SiCss;
+  if (t.includes('html')) return SiHtml5;
+  if (t.includes('webrtc')) return SiWebrtc;
+  if (t.includes('figma')) return SiFigma;
+  return null;
+};
 
 const Projects = ({ copy }: ProjectsProps) => {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
     if (selectedProject) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = 'unset';
     }
     return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [selectedProject])
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
 
   return (
     <section id="projects" className="relative px-6 py-28">
@@ -87,15 +103,11 @@ const Projects = ({ copy }: ProjectsProps) => {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <p className="mb-2 font-mono text-sm tracking-wider text-accent">
-            {copy.sectionTag}
-          </p>
+          <p className="mb-2 font-mono text-sm tracking-wider text-accent">{copy.sectionTag}</p>
           <h2 className="font-display text-4xl font-bold tracking-tight text-text md:text-5xl">
             {copy.title}
           </h2>
-          <p className="mt-4 max-w-lg text-muted">
-            {copy.description}
-          </p>
+          <p className="mt-4 max-w-lg text-muted">{copy.description}</p>
         </motion.div>
 
         {/* Project grid */}
@@ -125,9 +137,7 @@ const Projects = ({ copy }: ProjectsProps) => {
                 <h3 className="font-display text-xl font-semibold text-text transition-colors group-hover:text-accent">
                   {project.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {project.description}
-                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{project.description}</p>
 
                 {/* Tags */}
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -194,7 +204,7 @@ const Projects = ({ copy }: ProjectsProps) => {
                     </h4>
                     <div className="flex flex-wrap gap-3">
                       {selectedProject.tags.map((tag) => {
-                        const Icon = getIconForTag(tag)
+                        const Icon = getIconForTag(tag);
                         return (
                           <div
                             key={tag}
@@ -203,7 +213,7 @@ const Projects = ({ copy }: ProjectsProps) => {
                             {Icon && <Icon className="text-accent" size={18} />}
                             <span className="text-sm font-medium text-text">{tag}</span>
                           </div>
-                        )
+                        );
                       })}
                     </div>
                   </div>
@@ -236,7 +246,7 @@ const Projects = ({ copy }: ProjectsProps) => {
         </AnimatePresence>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
